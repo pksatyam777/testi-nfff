@@ -64,7 +64,7 @@ class BookingWidget {
                 text-align: center;
                 justify-content: start;
                 align-items: center;
-                width: 840px;
+                width: 773px;
                 height: 92px !important;
                 // border-radius: 11px;
                 padding-top: 5px;
@@ -137,7 +137,7 @@ class BookingWidget {
             }
 
             .booking-container .time-slot-container {
-                width: 840px;
+                width: 773px;
                 display: grid;
                 text-align: center;
                 width: 900px;
