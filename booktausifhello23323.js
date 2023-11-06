@@ -37,7 +37,7 @@ class BookingWidget {
                 // border: 1px solid #eee;
                 padding: 64px;
                 background:#FFFFFF;
-                width: 865px;
+                width: 840px;
                 height: auto !important;
                 border-radius: 16px;
                 // margin: 40px;
@@ -64,7 +64,7 @@ class BookingWidget {
                 text-align: center;
                 justify-content: start;
                 align-items: center;
-                width: 865px;
+                width: 840px;
                 height: 92px !important;
                 // border-radius: 11px;
                 padding-top: 5px;
@@ -101,8 +101,7 @@ class BookingWidget {
             }
 
             .booking-container .custom-div .week1 {
-                background: 
-                #7971C7;
+                background: #7971C7;
                 width: 61px !important;
                 height: 52px !important;
                 padding-top:10px;
@@ -138,7 +137,7 @@ class BookingWidget {
             }
 
             .booking-container .time-slot-container {
-                width: 865px;
+                width: 840px;
                 display: grid;
                 text-align: center;
                 width: 900px;
