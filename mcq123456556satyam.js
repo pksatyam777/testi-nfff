@@ -59,16 +59,16 @@ class MCQWidget {
         mcqContainer.appendChild(title);
         this.options.forEach((option, index) => {
             const optionDiv = document.createElement("div");
-            optionDiv.className = "option";
+            optionDiv.className = "mcq-option";
             optionDiv.addEventListener("click", () => {
                 this.toggleRadioButton(index);
             });
             const optionText = document.createElement("div");
-            optionText.className = "option-text";
+            optionText.className = "mcq-option-text";
             optionText.textContent = option.text; // Display the option text
             optionDiv.appendChild(optionText);
             if (this.options[index].selected) {
-                optionDiv.classList.add('selected');
+                optionDiv.classList.add('mcq-selected');
             }
             mcqContainer.appendChild(optionDiv);
         });
