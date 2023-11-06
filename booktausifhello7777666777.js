@@ -37,7 +37,7 @@ class BookingWidget {
                 // border: 1px solid #eee;
                 padding: 64px;
                 background:#FFFFFF;
-                width: 840px;
+                width: 865px;
                 height: auto !important;
                 border-radius: 16px;
                 // margin: 40px;
@@ -140,7 +140,6 @@ class BookingWidget {
                 width: 773px;
                 display: grid;
                 text-align: center;
-                width: 900px;
                 height:40px !important;
                 margin-top: 32px;
                 gap: 8px;
