@@ -35,7 +35,7 @@ class BookingWidget {
         }
             .booking-container {
                 // border: 1px solid #eee;
-                // padding: 64px;
+                padding: 64px;
                 background:#FFFFFF;
                 width: 865px;
                 height: auto !important;
