@@ -43,7 +43,7 @@ class BookingWidget {
                 // margin: 40px;
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
+                justify-content: start;
                 align-items: start;
             }
             .booking-container .booking-container-days {
