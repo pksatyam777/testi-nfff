@@ -22,7 +22,7 @@ class MCQWidget {
                 margin-bottom: 28px;
             }
             .mcq-container {
-                background: white;
+                // background: white;
                 width: 400px;
             }
             .mcq-option {
