@@ -36,6 +36,7 @@ class BookingWidget {
             background: #F7F7F8;
         }
             .booking-container {
+                position:relative;
                 // border: 1px solid #eee;
                 padding-top: 29.48px;
                 padding-bottom: 32px;
@@ -454,8 +455,8 @@ class BookingWidget {
 
             .booking-form-main-container{
                 position:absolute;
-                top:22%;
-                left:28%;
+                // top:22%;
+                // left:28%;
                 transition: opacity 0.9s ease-in;
             }
     
@@ -841,6 +842,77 @@ class BookingWidget {
         }
 
         else if (this.selectedTime !== null) {
+            const bookingElementContainer = document.createElement("div");
+
+            bookingElementContainer.className = "booking-container";
+
+            const title = document.createElement("h2");
+            title.textContent = this.heading;
+
+            const daysContainer = document.createElement("div");
+            daysContainer.className = "custom-div";
+
+
+            this.timeSlots.forEach((day, index) => {
+                const weekDiv = document.createElement("div");
+                weekDiv.className = "week";
+
+                if (index === this.selectedDateIndex) {
+                    weekDiv.classList.add("week1");
+                }
+
+                weekDiv.addEventListener('click', () => {
+                    this.selectedDateIndex = index;
+                    this.render();
+                });
+
+                const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+                let todayDate = new Date(day.date);
+                const dayOfWeek = daysOfWeek[todayDate.getDay()];
+                const dayHeading = document.createElement("h1");
+                dayHeading.className = "day";
+                dayHeading.textContent = dayOfWeek;
+
+                const dateParagraph = document.createElement("p");
+                dateParagraph.className = "date";
+                let dayFormatted = todayDate.getDate();
+                const formattedDayOfMonth = dayFormatted.toString().padStart(2, '0');
+                dateParagraph.textContent = formattedDayOfMonth;
+
+                weekDiv.appendChild(dayHeading);
+                weekDiv.appendChild(dateParagraph);
+                daysContainer.appendChild(weekDiv);
+            });
+
+            const timeSlotContainer = document.createElement("div");
+            timeSlotContainer.className = "time-slot-container";
+
+            if (this.selectedDate) {
+
+            }
+
+            this.timeSlots[this.selectedDateIndex].slots.forEach((time, index) => {
+                const timeSlotDiv = document.createElement("div");
+                timeSlotDiv.className = "time";
+                // Add a click event listener to the time slot
+                timeSlotDiv.addEventListener("click", () => {
+                    this.selectedTime = time; // Update the selected time
+                    this.render(); // Re-render the widget
+                });
+                const text = document.createElement("p");
+                // text.className =''
+                text.textContent = time.start_time.split(" ")[1];
+                timeSlotDiv.appendChild(text);
+                timeSlotContainer.appendChild(timeSlotDiv);
+            });
+
+
+            // append title
+            bookingElementContainer.appendChild(title);
+            bookingElementContainer.appendChild(daysContainer);
+            bookingElementContainer.appendChild(timeSlotContainer);
+            this.container.appendChild(bookingElementContainer);
+
             this.renderForm()
             console.log(this.renderConfirmations);
         }
