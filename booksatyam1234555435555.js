@@ -220,7 +220,7 @@ class BookingWidget {
                 }
     
                 .booking-form-meetingDetails {
-                    width: 199.75px;
+                    width: 250px;
                     height:auto;
                     display:flex;
                     padding-top: 28px;
