@@ -1,6 +1,7 @@
 class BookingWidget {
 
     constructor(props) {
+        this.renderConfirmations = false
         this.props = props;
         this.name = null
         this.email = null
@@ -19,6 +20,7 @@ class BookingWidget {
         this.bookingFormHeading = props.bookingFormHeading;
         this.meetIcon = props.meetIcon;
         this.rightArrow = props.rightArrow;
+        this.closeIcon = props.closeIcon;
 
         this.confirmBookingHeading = props.confirmBookingHeading;
         this.greenTimefixIcon = props.greenTimefixIcon;
@@ -382,8 +384,17 @@ class BookingWidget {
                     font-weight: 700;
                 }
 
-            
+                .closeIcon{
+                    width:24px;
+                    height:24px;
+                    display:flex;
+                    // justify-content:end;
+                    // align-items:end;
+                    margin-left:152%;
+                    margin-top:-4%;
+                }
 
+            
                 // confirm booking 
                 
         .confirm-schedule-booking-heading{
@@ -448,6 +459,9 @@ class BookingWidget {
                 transition: opacity 0.9s ease-in;
             }
     
+            .modalHide{
+                display:none;
+            }
         `;
         document.head.appendChild(styleElement);
     }
@@ -546,11 +560,11 @@ class BookingWidget {
 
         bookingFormElementMainContainer.className = "booking-form-main-container";
 
-        const title = document.createElement("h2");
-        title.className = 'booking-form-heading'
-        title.textContent = this.bookingFormHeading;
+        // const title = document.createElement("h2");
+        // title.className = 'booking-form-heading'
+        // title.textContent = this.bookingFormHeading;
 
-        bookingFormElementMainContainer.appendChild(title)
+        // bookingFormElementMainContainer.appendChild(title)
 
         const bookingElementContainer = document.createElement("div");
 
@@ -612,6 +626,18 @@ class BookingWidget {
 
         const nameDiv = document.createElement("div");
         nameDiv.className = "booking-form-nameDiv";
+
+        const closeIcon = document.createElement("img");
+        closeIcon.src = this.closeIcon;
+        closeIcon.className = 'closeIcon'
+
+        nameDiv.appendChild(closeIcon)
+
+        const title = document.createElement("h2");
+        title.className = 'booking-form-heading'
+        title.textContent = this.bookingFormHeading;
+
+        nameDiv.appendChild(title)
 
         // Name input
         const nameLabel = document.createElement('label');
@@ -692,13 +718,24 @@ class BookingWidget {
         nameInputValidate.addEventListener('input', handleFormValidation);
         emailInputValidate.addEventListener('input', handleFormValidation);
         detailsTextareaValidate.addEventListener('input', handleFormValidation);
-        submitText.onclick('click', handleFormValues);
+        // submitDiv.addEventListener('click', handleFormValues);
 
-        function handleFormValues() {
+        submitDiv.addEventListener("click", () => {
+            console.log('Hello')
+            // Handle the click event here
+            // You can perform any actions you need when the submit button is clicked
             this.name = nameInput.value
             this.email = emailInput.value
             this.details = detailsTextarea.value;
-        }
+            // this.renderConfirmations = true
+
+            if (this.name && this.email && this.details) {
+                console.log('Test')
+                this.renderConfirmations = true
+                this.renderConfirmation()
+                bookingFormElementMainContainer.classList.add('modalHide')
+            }
+        });
 
         function handleFormValidation() {
             const nameValue = nameInput.value;
@@ -805,9 +842,10 @@ class BookingWidget {
 
         else if (this.selectedTime !== null) {
             this.renderForm()
+            console.log(this.renderConfirmations);
         }
-
         else if (this.name && this.email && this.details) {
+            console.log('dummy')
             this.renderConfirmation()
         }
 
