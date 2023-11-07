@@ -35,7 +35,10 @@ class BookingWidget {
         }
             .booking-container {
                 // border: 1px solid #eee;
-                padding: 64px;
+                padding-top: 29.48px;
+                padding-bottom: 32px;
+                padding-left: 46px;
+                padding-right: 46px;
                 background:#FFFFFF;
                 width: 865px;
                 height: auto !important;
@@ -160,6 +163,7 @@ class BookingWidget {
                 font-weight: 500;
                 color: #051729;
                 cursor: pointer;
+                background: linear-gradient(to bottom, #FFFFFF 0%, #F2F2F2 100%);
             }
 
             .booking-container .time-slot-container .time.selected {
@@ -216,7 +220,7 @@ class BookingWidget {
                 }
     
                 .booking-form-meetingDetails {
-                    width: 170px;
+                    width: 199.75px;
                     height:auto;
                     display:flex;
                     padding-top: 28px;
@@ -770,6 +774,7 @@ class BookingWidget {
                     this.render(); // Re-render the widget
                 });
                 const text = document.createElement("p");
+                // text.className =''
                 text.textContent = time.start_time.split(" ")[1];
                 timeSlotDiv.appendChild(text);
                 timeSlotContainer.appendChild(timeSlotDiv);
