@@ -455,7 +455,7 @@ class BookingWidget {
 
             .booking-form-main-container{
                 position:absolute;
-                top:-6%;
+                top:0;
                 // left:28%;
                 transition: opacity 0.9s ease-in;
                 z-index:100;
