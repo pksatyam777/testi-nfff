@@ -441,6 +441,12 @@ class BookingWidget {
                 font-weight:400;
             }
 
+            .booking-form-main-container{
+                position:absolute;
+                top:22%;
+                left:28%;
+                transition: opacity 0.9s ease-in;
+            }
     
         `;
         document.head.appendChild(styleElement);
@@ -536,13 +542,21 @@ class BookingWidget {
     }
 
     renderForm() {
+        const bookingFormElementMainContainer = document.createElement("div");
+
+        bookingFormElementMainContainer.className = "booking-form-main-container";
+
         const title = document.createElement("h2");
         title.className = 'booking-form-heading'
         title.textContent = this.bookingFormHeading;
 
+        bookingFormElementMainContainer.appendChild(title)
+
         const bookingElementContainer = document.createElement("div");
 
         bookingElementContainer.className = "booking-form-container";
+
+        bookingFormElementMainContainer.appendChild(bookingElementContainer)
 
         const daysContainer = document.createElement("div");
         daysContainer.className = "booking-form-custom-div";
@@ -666,9 +680,9 @@ class BookingWidget {
         meetingDetails.appendChild(leftContainer);
         daysContainer.appendChild(meetingDetails);
         daysContainer.appendChild(rightContainer);
-        this.container.appendChild(title);
+        // this.container.appendChild(title);
         bookingElementContainer.appendChild(daysContainer);
-        this.container.appendChild(bookingElementContainer);
+        this.container.appendChild(bookingFormElementMainContainer);
 
         // Add event listeners to input fields for form validation
         const nameInputValidate = document.querySelector('.booking-form-nameInput');
